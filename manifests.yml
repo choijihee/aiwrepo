@@ -24,8 +24,6 @@ spec:
             memory: "2Gi"
         ports:
         - containerPort: 8080
-       imagePullSecrets:
-        - name: secret
 ---
 apiVersion: v1
 kind: Service
