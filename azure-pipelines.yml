@@ -24,7 +24,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'connection'
-    repository: 'aiwrepo'
+    repository: 'flightbookingsystemsample'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 
