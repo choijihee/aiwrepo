@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jiheeprj
+  labels:
+    app: jiheeprj
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: jiheeprj
+  template:
+    metadata:
+      labels:
+        app: jiheeprj
+    spec:
+      containers:
+      - name: jiheeprj
+        image: aiwacr220.azurecr.io/aiwrepo:latest
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jiheeprj
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8001
+    targetPort: 8001
+  selector:
+    app: jiheeprj
